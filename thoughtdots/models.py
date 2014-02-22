@@ -20,7 +20,7 @@ class Country(models.Model):
 
 class Data_Set(models.Model):
 	name = models.CharField(max_length=30, blank=True)
-	country = models.ManyToManyField(Country, null=True)
+	country = models.ManyToManyField(Country, null=True, blank=True, related_name='countries')
 	data_type = models.CharField(max_length=300, blank=True)
 
 	def __unicode__(self):
@@ -30,9 +30,10 @@ class Data_Set(models.Model):
 		# frame_data = fuxin_method(self.data_type)
 		my_list = ["a","b","c","d","e"]
 		for element in my_list:
-			d = Data_Point(year=2013, value=10000)
-			d.save()
-			c = Country(name=element, short_name="ab", longitude=1, latitude=1, data=d)
+			c = Country(name=element, short_name="ab", longitude=1, latitude=1)
 			c.save()
+			c.data.create(year=2013, value=10000)
 
-		super(Artist, self).save(*args, **kwargs)
+			self.country.add(c)
+
+		super(Data_Set, self).save(*args, **kwargs)

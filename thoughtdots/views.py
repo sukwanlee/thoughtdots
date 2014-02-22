@@ -1,15 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import CreateView
-from thoughtdots.models import Data_Set
+from django.views.generic import CreateView, DetailView, ListView
+from thoughtdots.models import Data_Set, Country, Data_Point
 
-def index(request):
-	context = {
+class DataDetailView(DetailView):
+	model = Data_Set
+	template_name = 'data_detail.html'
 
-	}
-	return render(request, 'index.html', context)
+	def get_context_data(self, **kwargs):
+		context = super(DataDetailView, self).get_context_data(**kwargs)
+		context['countries'] = Country.objects.all()
+
+		return context
 
 class DataSetCreateView(CreateView):
 	model = Data_Set
 	template_name = 'data_form.html'
-	success_url = '/'
+	success_url = '/1/'
