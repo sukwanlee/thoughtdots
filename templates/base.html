@@ -1,0 +1,16 @@
+<html>
+{% load staticfiles %}
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	{% block styles %}{% endblock %}
+	{% block meta %}{% endblock %}
+</head>
+<body>
+	{% block outer-content %}
+	{% endblock %}
+	{% block content %}{% endblock %}
+	{% block js %}
+	{% endblock %}
+</body>
+</html>
