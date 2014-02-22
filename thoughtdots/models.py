@@ -1,4 +1,5 @@
 from django.db import models
+
 import numpy, pandas
 
 class Data_Point(models.Model):
@@ -28,12 +29,12 @@ class Data_Set(models.Model):
 
 	def save(self, *args, **kwargs):
 		# frame_data = fuxin_method(self.data_type)
+		super(Data_Set, self).save(*args, **kwargs)
 		my_list = ["a","b","c","d","e"]
 		for element in my_list:
 			c = Country(name=element, short_name="ab", longitude=1, latitude=1)
 			c.save()
-			c.data.create(year=2013, value=10000)
+			for element in my_list:
+				c.data.create(year=2013, value=10000)
 
 			self.country.add(c)
-
-		super(Data_Set, self).save(*args, **kwargs)
