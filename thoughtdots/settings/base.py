@@ -1,10 +1,12 @@
 # Django settings for thoughtdots project.
-# from unipath import Path
+from unipath import Path
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-# PROJECT_DIR = Path(__file__).ancestor(3)
+PROJECT_DIR = Path(__file__).ancestor(3)
+MEDIA_ROOT = PROJECT_DIR.child("media")
+STATIC_ROOT = PROJECT_DIR.child("static")
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -76,6 +78,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     # PROJECT_DIR.child("static"),
+    PROJECT_DIR.child("static"),
 )
 
 # List of finder classes that know how to find static files in
@@ -115,6 +118,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    PROJECT_DIR.child("templates"),
 )
 
 INSTALLED_APPS = (

@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from thoughtdots.views import index
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -6,6 +7,7 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
+    url(r'^$', index),
     # url(r'^$', 'thoughtdots.views.home', name='home'),
     # url(r'^thoughtdots/', include('thoughtdots.foo.urls')),
 
