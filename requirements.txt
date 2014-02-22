@@ -1,4 +1,10 @@
 Django==1.6.2
 MySQL-python==1.2.5
 South==0.8.4
+Unipath==1.0
+numpy==1.8.0
+pandas==0.13.1
+python-dateutil==2.2
+pytz==2013.9
+six==1.5.2
 wsgiref==0.1.2

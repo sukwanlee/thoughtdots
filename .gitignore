@@ -5,3 +5,4 @@ local.py
 media/
 *.pot
 *.log
+thoughtdots/migrations
