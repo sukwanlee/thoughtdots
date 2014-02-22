@@ -1,0 +1,7 @@
+*.pyc
+local.py
+.gitignore
+.DS_Store
+media/
+*.pot
+*.log
