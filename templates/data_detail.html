@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+{% include "index.html" %}
+{% for country in countries %}
+<p>
+	{{country.name}}   {{country.short_name}}   Z
+	
+	{% for data in country.data.all %}
+		{{data.year}}
+	{% endfor %}
+</p>
+{% endfor %}
+{% endblock %}
