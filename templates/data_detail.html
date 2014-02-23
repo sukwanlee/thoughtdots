@@ -20,17 +20,13 @@
 
 {% block content %}
 	{% include "index.html" %}
-
 	<div id="map">
 	{% for country in countries %}
-		<div id="country" style="left: {{country.latitude}}%;">
-			{{country.name}}   {{country.short_name}}   {{country.latitude}}
-
-			{% for data in country.data.all %}
-				{{data.year}}
-			{% endfor %}
+		<div id="country{{country.id}}" style="width:100px; height:100px; font-size:20px; color:#fff; line-height: 100px; text-align:center; position:absolute; left:{{country.longitude}}%; bottom:{{country.latitude}}%; background:#eb1e29; border-top-right-radius: 50px; border-top-left-radius: 50px;">
+			{{country.short_name}}
 		</div>
 	{% endfor %}
+
 	</div>
 
 	<div class="noUiSlider"></div>
@@ -40,19 +36,39 @@
 
 {% block js %}
 	<script src="{% static "js/jquery.nouislider.min.js" %}"></script>
-
 	<script>
 		// Wait until the document is ready
 		$(function(){
 			//Run noUISlider
 			$('.noUiSlider').noUiSlider({
-				range: [10,40]
+				range: [1980,2018]
 				,start: [25,25]
 				,step: 1
 				,handles: 1
 				,serialization: {
 					to:[$("#low"), 'html']
 				}
+			}).change( function(){
+				{% for country in countries %}
+					//var id = 'div#country' + {{country.id}}.toString();
+					{% for data in country.data.all %}
+						var year = (parseInt($("#low").text()));
+						var dataYear = {{data.year}};
+						var val;
+						if(year == dataYear) { 
+							val = {{data.value}}; 
+							//var shortname = {{country.short_name}}
+							//$('div#country{{country.id}}').text(shortname); 
+							var logged = 0;
+							if (val != 0){
+								logged = 10*Math.log(val);
+							}
+							$('div#country{{country.id}}').css("width", logged);
+							$('div#country{{country.id}}').css("height", logged);
+						}
+						//text($('#low').text());
+					{% endfor %}
+				{% endfor %}
 			});
 		});
 	</script>
