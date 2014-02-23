@@ -45,7 +45,7 @@ class Data_Set(models.Model):
 			longi = (float(vals[2])+100)/2
 			lati = (float(vals[3])+100)/2
 			# print country + "+" + shortname + "+" + longitude + "+" + latitude
-			c = Country(name=country, short_name = shortname, longitude = longi, latitude = lati)
+			c = Country(name=country, short_name = shortname, longitude = longi-20, latitude = lati-20)
 			c.save()
 			for k in range(0, len(ind)):
 				time = ind[k].year

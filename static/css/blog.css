@@ -4,10 +4,14 @@
 }
 #blog-header {
   font-size: 4em;
+  margin-bottom: 0px;
 }
 #blog-post h4 {
   font-style: italic;
   color: grey;
+}
+hr {
+  width: 100%;
 }
 body {
   font-family: "proxima-nova", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
