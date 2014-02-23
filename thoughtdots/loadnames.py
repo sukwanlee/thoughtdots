@@ -85,11 +85,9 @@ def gather (datatype):
 	tag = ""
 	if (datatype == "NGDP"):
 		tag = "ODA"
-<<<<<<< HEAD
+
 	countries = pickle.load (open(pickledir,"rb"))
-=======
-	countries = pickle.load (open("codeandcord.p","rb"))
->>>>>>> 90e2192b069c6aa20cc79a2ad4392fcf9ab45ed0
+
 	longform = []
 	columns = []
 	mydata = pd.DataFrame ()
