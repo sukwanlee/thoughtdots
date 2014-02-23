@@ -10,7 +10,11 @@ class DataDetailView(DetailView):
 	def get_context_data(self, **kwargs):
 		context = super(DataDetailView, self).get_context_data(**kwargs)
 		context['countries'] = Country.objects.all()
-		
+		nation = Country.objects.all()[0]
+
+		context['startyear'] = nation.data.all()[0].year
+		context['endyear'] = nation.data.all().reverse()[0].year
+
 		return context
 
 class DataSetCreateView(CreateView):

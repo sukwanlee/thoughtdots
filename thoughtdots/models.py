@@ -35,15 +35,15 @@ class Data_Set(models.Model):
 	def save(self, *args, **kwargs):
 		df = gather("NGDP") #fuxin's data frame method
 		super(Data_Set, self).save(*args, **kwargs)
-		df = gather ("NGDP")
+		# df = gather ("NGDP")
 		times = df.columns
 		ind = df.index
 		for i in range(0,len(times)):
 			vals = times[i].split(",")
 			country = vals[0]
 			shortname = vals[1]
-			longi = (float(vals[2])+100)/2
-			lati = (float(vals[3])+100)/2
+			longi = ((float(vals[2])+100)/2)-20
+			lati = ((float(vals[3])+100)/2)-20
 			# print country + "+" + shortname + "+" + longitude + "+" + latitude
 			c = Country(name=country, short_name = shortname, longitude = longi, latitude = lati)
 			c.save()
