@@ -164,7 +164,7 @@ def gather (datatype):
 	return mydata	
 
 def parse():
-	df = gather ("NGDP")
+	df = gather("NGDP")
 	times = df.columns
 	ind = df.index
 	for i in range(0,len(times)):
