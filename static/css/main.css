@@ -20,7 +20,7 @@ html {
 #about {
   width: 500px;
   margin: auto auto;
-  margin-top: 60px;
+  padding-top: 60px;
 }
 #about h1 {
   font-size: 3em;
