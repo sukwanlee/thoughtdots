@@ -11,10 +11,15 @@ class DataDetailView(DetailView):
 		context = super(DataDetailView, self).get_context_data(**kwargs)
 		context['countries'] = Country.objects.all()
 		
-
 		return context
 
 class DataSetCreateView(CreateView):
 	model = Data_Set
 	template_name = 'data_form.html'
 	success_url = '/1/'
+
+def about(request):
+	return render(request, 'about.html')
+
+def guide(request):
+	return render(request, 'guide.html')

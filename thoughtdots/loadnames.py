@@ -5,11 +5,13 @@ import pandas as pd
 import pickle
 import Quandl as qd
 import matplotlib.pyplot as plt
+
 from unipath import Path
 
 PROJECT_DIR = Path(__file__).ancestor(1)
 pickledir = PROJECT_DIR.child("codeandcord.p")
 qd.get("NSE/OIL", rows=1, authtoken="2WmizyAqrqKpokFbMyYM")
+
 #takes commands:
 #name sure the authtoken pickle is in the same folder
 # -ngdp returns all nations in a 
@@ -83,7 +85,11 @@ def gather (datatype):
 	tag = ""
 	if (datatype == "NGDP"):
 		tag = "ODA"
+<<<<<<< HEAD
 	countries = pickle.load (open(pickledir,"rb"))
+=======
+	countries = pickle.load (open("codeandcord.p","rb"))
+>>>>>>> 90e2192b069c6aa20cc79a2ad4392fcf9ab45ed0
 	longform = []
 	columns = []
 	mydata = pd.DataFrame ()
@@ -178,3 +184,4 @@ def parse():
 
 
 # parse()
+

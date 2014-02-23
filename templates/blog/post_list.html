@@ -1,0 +1,18 @@
+{% extends "blog/blog_base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	{% include "index.html" %}
+	
+	<div id="container">
+		<p id="blog-header">ThoughtDots Blog...</p><hr>
+
+		{% for post in posts %}
+			<div id="blog-post">
+				<h1>{{post.title}}</h1>
+				<h4>by {{post.author}} on {{post.date | date:"F j, Y"}}</h3>
+				<p>{{post.content}}</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
