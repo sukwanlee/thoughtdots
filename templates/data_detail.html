@@ -1,17 +1,59 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-
+{% block styles %}
+	<link rel="stylesheet" href="{% static "css/jquery.nouislider.min.css" %}">
+	<style>
+		.noUiSlider{
+			width: 80%;
+			margin: auto auto;
+		}
+		#low{
+			padding-bottom: 30px;
+			width: 80%;
+			margin: auto auto;
+			text-align: right;
+			margin-top: 10px;
+		}
+	</style>
+{% endblock %}
 
 {% block content %}
-{% include "index.html" %}
-{% for country in countries %}
-<p>
-	{{country.name}}   {{country.short_name}}   Z
-	
-	{% for data in country.data.all %}
-		{{data.year}}
+	{% include "index.html" %}
+
+	<div id="map">
+	{% for country in countries %}
+		<div id="country" style="left: {{country.latitude}}%;">
+			{{country.name}}   {{country.short_name}}   {{country.latitude}}
+
+			{% for data in country.data.all %}
+				{{data.year}}
+			{% endfor %}
+		</div>
 	{% endfor %}
-</p>
-{% endfor %}
+	</div>
+
+	<div class="noUiSlider"></div>
+	<div id="low"></div>
+
+{% endblock %}
+
+{% block js %}
+	<script src="{% static "js/jquery.nouislider.min.js" %}"></script>
+
+	<script>
+		// Wait until the document is ready
+		$(function(){
+			//Run noUISlider
+			$('.noUiSlider').noUiSlider({
+				range: [10,40]
+				,start: [25,25]
+				,step: 1
+				,handles: 1
+				,serialization: {
+					to:[$("#low"), 'html']
+				}
+			});
+		});
+	</script>
 {% endblock %}

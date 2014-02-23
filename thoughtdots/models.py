@@ -6,6 +6,9 @@ class Data_Point(models.Model):
 	year = models.IntegerField(blank = True)
 	value = models.IntegerField(blank = True)
 
+	class Meta:
+		ordering = ['year']
+
 class Country(models.Model):
 	name = models.CharField(max_length=30, blank=True)
 	short_name = models.CharField(max_length=3, blank=True)
@@ -32,7 +35,7 @@ class Data_Set(models.Model):
 		super(Data_Set, self).save(*args, **kwargs)
 		my_list = ["a","b","c","d","e"]
 		for element in my_list:
-			c = Country(name=element, short_name="ab", longitude=1, latitude=1)
+			c = Country(name=element, short_name="ab", longitude=1, latitude=20)
 			c.save()
 			for element in my_list:
 				c.data.create(year=2013, value=10000)
