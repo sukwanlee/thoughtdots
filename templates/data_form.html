@@ -3,9 +3,9 @@
 
 {% block content %}
 
-{% include "navbar.html" %}
+{% include "index.html" %}
 
-<h1>Artist Form</h1>
+<h1>Data Form</h1>
 <form enctype="multipart/form-data" method="POST">
 	{% csrf_token %}
 	{{form.errors}}

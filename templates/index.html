@@ -1,49 +1,16 @@
-<html>
 {% load staticfiles %}
-	<head>
-		<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
-		<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
-	</head>
-	<body>
-		      <!-- Static navbar -->
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">ThoughtDots</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">About</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-            
 
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
+<header>
+  <nav id="navbar"> 
+    <div id="container" style="width: 800px; position: relative; margin: auto auto;">
+      <a href="#"><div id="title">DotsWorld</div></a>
+      <div id="nav-menus">
+        <a href="#">Sets</a>
+        <a href="#">Create set</a>
+        <a href="/blog/">Blog</a>
+        <a href="/guide/">Guide</a>
+        <a href="/about/">About</a>
       </div>
-
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
-	</body>
-</html>
+    </div>
+  </nav>
+</header>

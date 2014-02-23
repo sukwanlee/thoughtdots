@@ -53,6 +53,16 @@
 				,serialization: {
 					to:[$("#low"), 'html']
 				}
+			}).change( function(){
+				{% for country in countries %}
+					{% for data in country.data.all %}
+						var year = (2033 - parseInt($("#low").text()));
+						var dataYear = {{data.year}};
+						var val;
+						if(year == dataYear) { val = {{data.value}}; }
+						$('div#country').text(val);//text($('#low').text());
+					{% endfor %}
+				{% endfor %}
 			});
 		});
 	</script>

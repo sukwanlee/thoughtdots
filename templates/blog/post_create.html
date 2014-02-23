@@ -1,0 +1,14 @@
+{% extends "blog/blog_base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	{% include "index.html" %}
+
+	<h1>Blog Post Form</h1>
+	<form enctype="multipart/form-data" method="POST">
+		{% csrf_token %}
+		{{form.errors}}
+		{{form.as_p}}
+		<p><input type="submit" value="SUBMIT"></p>
+	</form>
+{% endblock %}
