@@ -63,17 +63,34 @@
 							$('div#country{{country.id}}').css("line-height", logged/5);
 							$('div#country{{country.id}}').css("font-size", logged/5);
 							$('div#country{{country.id}}').css("border-radius", logged/2);
-							if (logged < 0.000001){
-								$('div#country{{country.id}}').css("background", "#F7111D ");
+							if (val > 250){
+								$('div#country{{country.id}}').css("background", "#F71111");
 							}
-							else if (logged > 0.1){
-								$('div#country{{country.id}}').css("background", "#1911F7 ");
+							else if (val > 240){
+								$('div#country{{country.id}}').css("background", "#F7114B");
+							}
+							else if (val > 200){
+								$('div#country{{country.id}}').css("background", "#F7117D");
+							}
+							else if (val > 160){
+								$('div#country{{country.id}}').css("background", "#F711BE");
+							}
+							else if (val > 120){
+								$('div#country{{country.id}}').css("background", "#F011F7");
+							}
+							else if (val > 80){
+								$('div#country{{country.id}}').css("background", "#BE11F7");
+							}
+							else if (val > 60){
+								$('div#country{{country.id}}').css("background", "#9011F7");
+							}
+							else if (val > 40){
+								$('div#country{{country.id}}').css("background", "#6911F7");
 							}
 							else{
-								$('div#country{{country.id}}').css("background", "#F011F7 ");
-							}
-							
-													}
+								$('div#country{{country.id}}').css("background", "#2811F7");
+							}	
+						}
 						//text($('#low').text());
 					{% endfor %}
 				{% endfor %}
